@@ -7,6 +7,17 @@ const app = express();
 
 app.use(express.json());
 
+// Rotas
+import personRoutes from "./src/routes/personRoutes.js";
+import educationRoutes from "./src/routes/educationRoutes.js";
+import experienceRoutes from "./src/routes/experienceRoutes.js";
+import skillRoutes from "./src/routes/skillRoutes.js";
+
+app.use("/api/persons", personRoutes);
+app.use("/api/educations", educationRoutes);
+app.use("/api/experiences", experienceRoutes);
+app.use("/api/skills", skillRoutes);
+
 // Rota inicial simples
 app.get("/", (req, res) => {
   res.send("API do Currículo está rodando! 🚀");
