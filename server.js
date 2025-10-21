@@ -20,6 +20,15 @@ try {
   console.error("❌ Erro ao conectar com o banco de dados:", error);
 }
 
+import "./src/models/Person.js";
+import "./src/models/Education.js";
+import "./src/models/Experience.js";
+import "./src/models/Skill.js";
+
+await sequelize.sync({ alter: true });
+console.log("✅ Tabelas sincronizadas com o banco!");
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
